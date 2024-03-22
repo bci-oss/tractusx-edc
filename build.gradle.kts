@@ -57,7 +57,11 @@ allprojects {
     apply(plugin = "org.eclipse.edc.edc-build")
 
     repositories {
+        maven {
+            url = uri("https://oss.sonatype.org/content/repositories/snapshots/")
+        }
         mavenCentral()
+        mavenLocal()
     }
     dependencies {
         implementation("org.slf4j:slf4j-api:2.0.12")

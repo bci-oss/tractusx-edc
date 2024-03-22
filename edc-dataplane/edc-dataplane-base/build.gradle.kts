@@ -22,11 +22,16 @@ plugins {
     `java-library`
 }
 
+repositories {
+    mavenLocal()
+}
+
 dependencies {
     runtimeOnly(project(":core:edr-cache-core"))
     runtimeOnly(project(":edc-extensions:dataplane:dataplane-proxy:edc-dataplane-proxy-consumer-api"))
     runtimeOnly(project(":edc-extensions:dataplane:dataplane-token-refresh:token-refresh-core"))
     runtimeOnly(project(":edc-extensions:dataplane:dataplane-token-refresh:token-refresh-api"))
+    runtimeOnly("org.eclipse.tractusx.digital_twin_registry:dtr-edc-access-control-extension:DEV-SNAPSHOT")
 
     runtimeOnly(libs.edc.jsonld) // needed by the DataPlaneSignalingApi
     runtimeOnly(libs.edc.identity.core.did) // for the DID Public Key Resolver
